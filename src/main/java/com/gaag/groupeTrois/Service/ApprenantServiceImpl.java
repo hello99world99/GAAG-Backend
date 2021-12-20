@@ -22,9 +22,11 @@ public class ApprenantServiceImpl implements AprpenantService{
     }
 
     @Override
-    public void supprimerById(Long id) {
+    public String supprimerApprenantById(Long id) {
 
          apprenantRepository.deleteById(id);
+
+         return "Supprimer avec sucess";
     }
 
     @Override

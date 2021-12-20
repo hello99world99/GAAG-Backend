@@ -7,6 +7,6 @@ import java.util.List;
 public interface AprpenantService {
     Apprenant ajouterApprenant(Apprenant apprenant);
     List<Apprenant> afficherListApprenant();
-    void supprimerById(Long id);
+    String supprimerApprenantById(Long id);
     Apprenant modifierApprenant(Apprenant apprenant, Long id);
 }

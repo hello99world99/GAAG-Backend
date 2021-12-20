@@ -3,10 +3,7 @@ package com.gaag.groupeTrois.Controller;
 import com.gaag.groupeTrois.Model.Apprenant;
 import com.gaag.groupeTrois.Service.ApprenantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +19,25 @@ public class ApprenantController {
     List<Apprenant> afficherListApprenant(){
         return apprenantServiceImp.afficherListApprenant();
     }
+
+    @PostMapping("/ajouter_apprenant")
+    Apprenant ajouter_apprenant(@RequestBody  Apprenant apprenant){
+        return apprenantServiceImp.ajouterApprenant(apprenant);
+    }
+
+    @PutMapping("/modifier_apprenant/{id}")
+    Apprenant modifierApprenant(@RequestBody Apprenant apprenant,@PathVariable Long id){
+
+        return apprenantServiceImp.modifierApprenant(apprenant, id);
+    }
+
+    @DeleteMapping("/supprimer_apprenant/{id}")
+    String supprimerApprenant(@PathVariable Long id){
+
+        return apprenantServiceImp.supprimerApprenantById(id);
+
+
+    }
+
+
 }
