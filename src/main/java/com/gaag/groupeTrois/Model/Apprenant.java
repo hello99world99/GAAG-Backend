@@ -13,12 +13,24 @@ public class Apprenant {
     @ManyToOne
     private Promotion promotion;
 
-
     private String nom_complet;
 
     private String email;
 
     private String Telephone;
+    @Enumerated(EnumType.STRING)
+    private Etat etat;
+
+
+    /**
+     *
+     */
+    @ManyToOne
+    private Groupe groupe;
+
+    public Groupe getGroupe() {
+        return groupe;
+    }
 
     public Apprenant() {
     }
@@ -61,5 +73,14 @@ public class Apprenant {
 
     public void setTelephone(String telephone) {
         Telephone = telephone;
+    }
+
+
+    public Etat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Etat etat) {
+        this.etat = etat;
     }
 }

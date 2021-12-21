@@ -12,10 +12,10 @@ import com.gaag.groupeTrois.Model.Apprenant;
 
 import java.util.List;
 
-public interface AprpenantService {
+public interface ApprenantService {
     Apprenant ajouterApprenant(Apprenant apprenant);
     List<Apprenant> afficherListApprenant();
-    String supprimerApprenantById(Long id);
+    String supprimerApprenantById(Apprenant apprenant, Long id);
     Apprenant modifierApprenant(Apprenant apprenant, Long id);
 
 }

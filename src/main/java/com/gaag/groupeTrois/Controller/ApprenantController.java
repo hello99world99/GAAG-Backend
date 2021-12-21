@@ -32,9 +32,9 @@ public class ApprenantController {
     }
 
     @DeleteMapping("/supprimer_apprenant/{id}")
-    String supprimerApprenant(@PathVariable Long id){
+    String supprimerApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
 
-        return apprenantServiceImp.supprimerApprenantById(id);
+        return apprenantServiceImp.supprimerApprenantById(apprenant, id);
 
 
     }

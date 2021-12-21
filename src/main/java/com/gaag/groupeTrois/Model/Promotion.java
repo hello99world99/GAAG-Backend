@@ -18,6 +18,7 @@ public class Promotion {
     private LocalDate annee;
 
     private String formation;
+    
 
     public Promotion() {
     }

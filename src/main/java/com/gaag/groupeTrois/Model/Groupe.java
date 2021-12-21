@@ -1,6 +1,7 @@
 package com.gaag.groupeTrois.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Groupe {
@@ -13,9 +14,11 @@ public class Groupe {
     private int nonbr_goupe;
     private int numero_groupe;
 
-    @OneToOne
-    @JoinColumn(name = "aprrenant_id")
-    private Apprenant apprenant;
+    private Etat etat;
+
+
+    @OneToMany(mappedBy = "groupe")
+    private List<Apprenant> apprenant;
 
     public Groupe() {
     }
@@ -44,11 +47,11 @@ public class Groupe {
         this.numero_groupe = numero_groupe;
     }
 
-    public Apprenant getApprenant() {
+    public List<Apprenant> getApprenant() {
         return apprenant;
     }
 
-    public void setApprenant(Apprenant apprenant) {
+    public void setApprenant(List<Apprenant> apprenant) {
         this.apprenant = apprenant;
     }
 }

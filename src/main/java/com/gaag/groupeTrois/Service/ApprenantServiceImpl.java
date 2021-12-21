@@ -1,6 +1,7 @@
 package com.gaag.groupeTrois.Service;
 
 import com.gaag.groupeTrois.Model.Apprenant;
+import com.gaag.groupeTrois.Model.Etat;
 import com.gaag.groupeTrois.Repository.ApprenantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,12 @@ public class ApprenantServiceImpl implements AprpenantService{
     }
 
     @Override
-    public String supprimerApprenantById(Long id) {
+    public String supprimerApprenantById(Apprenant apprenant, Long id) {
 
-         apprenantRepository.deleteById(id);
+        Apprenant apprenantSUp =  apprenantRepository.findById(id).get();
+        apprenantSUp.setEtat(Etat.DESACTIVER);
+
+        apprenantRepository.save(apprenantSUp);
 
          return "Supprimer avec sucess";
     }
