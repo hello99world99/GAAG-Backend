@@ -14,6 +14,7 @@ public class Groupe {
     private int nonbr_goupe;
     private int numero_groupe;
 
+    @Enumerated(EnumType.STRING)
     private Etat etat;
 
 
@@ -54,4 +55,13 @@ public class Groupe {
     public void setApprenant(List<Apprenant> apprenant) {
         this.apprenant = apprenant;
     }
+
+    public Etat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Etat etat) {
+        this.etat = etat;
+    }
+
 }

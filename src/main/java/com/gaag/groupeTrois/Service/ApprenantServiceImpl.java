@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class ApprenantServiceImpl implements AprpenantService{
+public class ApprenantServiceImpl implements ApprenantService{
     @Autowired
     ApprenantRepository apprenantRepository;
 

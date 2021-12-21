@@ -10,7 +10,7 @@ import java.util.List;
 public interface PromotionService {
 
     List<Promotion> afficherPromotion();
-    String supprimerPromotionById(Long id);
+    String supprimerPromotionById(Promotion promotion, Long id);
     Promotion ajouterPromotion(Promotion promotion);
     Promotion modifierPromotion(Promotion promotion, Long id);
 }

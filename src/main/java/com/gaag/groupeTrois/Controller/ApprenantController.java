@@ -15,23 +15,23 @@ public class ApprenantController {
     @Autowired
     ApprenantServiceImpl apprenantServiceImp;
 
-    @GetMapping("/afficher_list_apprenant")
+    @GetMapping("/afficher")
     List<Apprenant> afficherListApprenant(){
         return apprenantServiceImp.afficherListApprenant();
     }
 
-    @PostMapping("/ajouter_apprenant")
+    @PostMapping("/ajouter")
     Apprenant ajouter_apprenant(@RequestBody  Apprenant apprenant){
         return apprenantServiceImp.ajouterApprenant(apprenant);
     }
 
-    @PutMapping("/modifier_apprenant/{id}")
+    @PutMapping("/modifier/{id}")
     Apprenant modifierApprenant(@RequestBody Apprenant apprenant,@PathVariable Long id){
 
         return apprenantServiceImp.modifierApprenant(apprenant, id);
     }
 
-    @DeleteMapping("/supprimer_apprenant/{id}")
+    @DeleteMapping("/supprimer/{id}")
     String supprimerApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
 
         return apprenantServiceImp.supprimerApprenantById(apprenant, id);

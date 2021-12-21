@@ -17,26 +17,26 @@ public class PromotionController {
     PromotionServiceImpl promotionService;
 
 
-    @GetMapping("/afficher_promotion")
+    @GetMapping("/afficher")
     List<Promotion> afficherPromotion(){
         return promotionService.afficherPromotion();
     }
 
-    @PostMapping("/ajouter_promotion")
+    @PostMapping("/ajouter")
     Promotion ajouter_promotion(@RequestBody Promotion promotion){
         return promotionService.ajouterPromotion(promotion);
     }
 
-    @PutMapping("/modifier_promotion/{id}")
+    @PutMapping("/modifier/{id}")
     Promotion modifierPromotion(@RequestBody Promotion promotion,@PathVariable Long id){
 
         return promotionService.modifierPromotion(promotion, id);
     }
 
-    @DeleteMapping("/supprimer_promotion/{id}")
-    String supprimerPromotion(@PathVariable Long id){
+    @DeleteMapping("/supprimer/{id}")
+    String supprimerPromotion(@RequestBody Promotion promotion, @PathVariable Long id){
 
-        return promotionService.supprimerPromotionById(id);
+        return promotionService.supprimerPromotionById(promotion, id);
 
 
     }

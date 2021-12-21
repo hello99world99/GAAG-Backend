@@ -1,9 +1,6 @@
 package com.gaag.groupeTrois.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -18,7 +15,10 @@ public class Promotion {
     private LocalDate annee;
 
     private String formation;
-    
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat;
+
 
     public Promotion() {
     }
@@ -47,4 +47,13 @@ public class Promotion {
     public void setFormation(String formation) {
         this.formation = formation;
     }
+
+    public Etat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Etat etat) {
+        this.etat = etat;
+    }
+
 }

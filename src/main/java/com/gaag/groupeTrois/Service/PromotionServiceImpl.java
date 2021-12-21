@@ -1,6 +1,7 @@
 package com.gaag.groupeTrois.Service;
 
 import com.gaag.groupeTrois.Model.Apprenant;
+import com.gaag.groupeTrois.Model.Etat;
 import com.gaag.groupeTrois.Model.Promotion;
 import com.gaag.groupeTrois.Repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,12 @@ public class PromotionServiceImpl implements PromotionService{
     }
 
     @Override
-    public String supprimerPromotionById(Long id) {
-        promotionRepository.deleteById(id);
+    public String supprimerPromotionById(Promotion promotion , Long id) {
+
+        Promotion promotionSUp =  promotionRepository.findById(id).get();
+        promotionSUp.setEtat(Etat.DESACTIVER);
+
+        promotionRepository.save(promotionSUp);
         return "Promotion supprimer avec succes";
     }
 
