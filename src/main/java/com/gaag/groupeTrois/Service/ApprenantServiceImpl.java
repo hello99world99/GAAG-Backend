@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -34,6 +35,7 @@ public class ApprenantServiceImpl implements AprpenantService{
          return "Supprimer avec sucess...";
     }
 
+    @Transactional
     @Override
     public Apprenant modifierApprenant(Apprenant apprenant, Long id) {
         Apprenant apprenant_a_modifier = apprenantRepository.findById(id).get();
@@ -42,5 +44,10 @@ public class ApprenantServiceImpl implements AprpenantService{
         apprenant_a_modifier.setTelephone(apprenant.getTelephone());
         apprenant_a_modifier.setPromotion(apprenant.getPromotion());
         return apprenantRepository.save(apprenant_a_modifier);
+    }
+
+    @Override
+    public List<Apprenant> listApprenantByPromotion(LocalDate annee) {
+        return this.apprenantRepository.getApprenantByPromotionAndEtat(annee, Etat.ACTIVER);
     }
 }

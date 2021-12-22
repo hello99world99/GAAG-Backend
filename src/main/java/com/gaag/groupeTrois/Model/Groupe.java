@@ -29,6 +29,9 @@ public class Groupe {
     @NotBlank
     private int numeroGroupe;
 
+    @NotNull
+    private int round;
+
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.ACTIVER;
 
