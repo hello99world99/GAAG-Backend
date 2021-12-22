@@ -14,7 +14,6 @@ public class GroupeServiceImpl implements GroupeService{
     @Autowired
     GroupeRepository groupeRepository;
 
-
     @Override
     public List<Groupe> afficherAllGroupe() {
         return groupeRepository.findAll();

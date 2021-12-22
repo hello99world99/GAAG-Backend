@@ -4,6 +4,7 @@ package com.gaag.groupeTrois.Service;
 import com.gaag.groupeTrois.Model.Promotion;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -13,4 +14,5 @@ public interface PromotionService {
     String supprimerPromotionById(Long id);
     String ajouterPromotion(Promotion promotion);
     String modifierPromotion(Promotion promotion, Long id);
+    public LocalDate getAnnee(LocalDate annee);
 }

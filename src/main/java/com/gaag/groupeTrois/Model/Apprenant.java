@@ -10,6 +10,7 @@ import org.springframework.format.annotation.NumberFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -24,13 +25,13 @@ public class Apprenant {
 
     @ManyToOne
     @JoinColumn(name = "promotion_id")
-    @NotBlank
+    @NotNull
     private Promotion promotion;
 
     @NotBlank
     private String nomComplet;
 
-    @NotBlank
+    @NotNull
     @Email
     private String email;
 

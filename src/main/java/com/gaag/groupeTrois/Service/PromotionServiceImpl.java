@@ -5,6 +5,7 @@ import com.gaag.groupeTrois.Repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -38,5 +39,10 @@ public class PromotionServiceImpl implements PromotionService{
         promo_a_modifier.setFormation(promotion.getFormation());
         promotionRepository.save(promo_a_modifier);
         return "Promotion modifiée avec succèss...";
+    }
+
+    @Override
+    public LocalDate getAnnee(LocalDate annee) {
+        return this.promotionRepository.getPromotionByAnnee(annee);
     }
 }
