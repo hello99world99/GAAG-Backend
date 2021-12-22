@@ -1,49 +1,30 @@
 package com.gaag.groupeTrois.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Date;
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 public class Promotion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull
     private LocalDate annee;
-
+    @NotNull
     private String formation;
-
-    public Promotion() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public LocalDate getAnnee() {
-        return annee;
-    }
-
-    public void setAnnee(LocalDate annee) {
-        this.annee = annee;
-    }
-
-    public String getFormation() {
-        return formation;
-    }
-
-    public void setFormation(String formation) {
-        this.formation = formation;
-    }
 }

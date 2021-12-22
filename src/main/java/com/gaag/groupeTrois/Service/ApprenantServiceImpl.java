@@ -34,7 +34,7 @@ public class ApprenantServiceImpl implements AprpenantService{
     public Apprenant modifierApprenant(Apprenant apprenant, Long id) {
 
         Apprenant apprenant_a_modifier = apprenantRepository.findById(id).get();
-        apprenant_a_modifier.setNom_complet(apprenant.getNom_complet());
+        apprenant_a_modifier.setNomComplet(apprenant.getNomComplet());
         apprenant_a_modifier.setEmail(apprenant.getEmail());
         apprenant_a_modifier.setTelephone(apprenant.getTelephone());
         apprenant_a_modifier.setPromotion(apprenant.getPromotion());

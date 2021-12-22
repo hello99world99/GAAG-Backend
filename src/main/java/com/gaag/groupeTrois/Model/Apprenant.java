@@ -1,8 +1,20 @@
 package com.gaag.groupeTrois.Model;
 
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.format.annotation.NumberFormat;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 public class Apprenant {
 
@@ -10,55 +22,17 @@ public class Apprenant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @ManyToOne
     private Promotion promotion;
 
-    private String nom_complet;
+    @NotBlank
+    private String nomComplet;
 
+    @NotBlank
+    @Email
     private String email;
 
-    private String Telephone;
-
-    public Apprenant() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNom_complet() {
-        return nom_complet;
-    }
-
-    public void setNom_complet(String nom_complet) {
-        this.nom_complet = nom_complet;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Promotion getPromotion() {
-        return promotion;
-    }
-
-    public void setPromotion(Promotion promotion) {
-        this.promotion = promotion;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelephone() {
-        return Telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        Telephone = telephone;
-    }
+    @NumberFormat
+    private String telephone;
 }
