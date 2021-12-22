@@ -14,9 +14,27 @@ public class GroupeServiceImpl implements GroupeService{
     @Autowired
     GroupeRepository groupeRepository;
 
+    Groupe groupeInstance;
+
 
     @Override
     public List<Groupe> afficherAllGroupe() {
         return groupeRepository.findAll();
     }
+
+    @Override
+    public void AjouterGroupe(Groupe groupe, int groupe_number) {
+
+        for(int i=0 ; i <= groupe_number; i++){
+            groupeInstance  = new Groupe();
+
+            groupeInstance.setNom_groupe("Groupe " + i);
+            groupeRepository.save(groupeInstance);
+        }
+
+
+
+    }
+
+
 }

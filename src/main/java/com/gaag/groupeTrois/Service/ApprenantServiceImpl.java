@@ -4,6 +4,7 @@ import com.gaag.groupeTrois.Model.Apprenant;
 import com.gaag.groupeTrois.Model.Etat;
 import com.gaag.groupeTrois.Repository.ApprenantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +20,12 @@ public class ApprenantServiceImpl implements ApprenantService{
 
     @Override
     public List<Apprenant> afficherListApprenant() {
+        //Add to parameter for sorting to Order by name
+        //Sort.by(Sort.Direction.ASC, "nom")
         return apprenantRepository.findAll();
     }
+
+
 
     @Override
     public String supprimerApprenantById(Apprenant apprenant, Long id) {

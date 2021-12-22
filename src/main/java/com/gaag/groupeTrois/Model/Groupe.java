@@ -11,17 +11,27 @@ public class Groupe {
     private Long id;
 
 
+
+    private String nom_groupe;
+
     private int nonbr_goupe;
+
     private int numero_groupe;
+
 
     @Enumerated(EnumType.STRING)
     private Etat etat;
 
+    @ManyToOne()
+    private Apprenant apprenant;
 
-    @OneToMany(mappedBy = "groupe")
-    private List<Apprenant> apprenant;
+
 
     public Groupe() {
+    }
+
+    public Groupe(int nonbr_goupe) {
+        this.nonbr_goupe = nonbr_goupe;
     }
 
     public Long getId() {
@@ -48,20 +58,21 @@ public class Groupe {
         this.numero_groupe = numero_groupe;
     }
 
-    public List<Apprenant> getApprenant() {
-        return apprenant;
-    }
-
-    public void setApprenant(List<Apprenant> apprenant) {
-        this.apprenant = apprenant;
-    }
-
     public Etat getEtat() {
         return etat;
     }
 
     public void setEtat(Etat etat) {
         this.etat = etat;
+    }
+
+
+    public String getNom_groupe() {
+        return nom_groupe;
+    }
+
+    public void setNom_groupe(String nom_groupe) {
+        this.nom_groupe = nom_groupe;
     }
 
 }

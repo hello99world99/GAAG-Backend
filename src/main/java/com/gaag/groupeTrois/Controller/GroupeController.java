@@ -2,12 +2,10 @@ package com.gaag.groupeTrois.Controller;
 
 
 import com.gaag.groupeTrois.Model.Groupe;
+import com.gaag.groupeTrois.Model.Promotion;
 import com.gaag.groupeTrois.Service.GroupeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +19,16 @@ public class GroupeController {
     GroupeServiceImpl groupeService;
 
 
-    @GetMapping("lister")
+    @GetMapping("/lister")
     List<Groupe> listeGroupe(){
 
         return groupeService.afficherAllGroupe();
+    }
+
+    @PostMapping("/ajouter/{number}")
+    void ajouterGroupe(@RequestBody Groupe groupe, @PathVariable int number){
+
+
+         groupeService.AjouterGroupe(groupe, number);
     }
 }

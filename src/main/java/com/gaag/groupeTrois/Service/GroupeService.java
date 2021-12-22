@@ -8,4 +8,6 @@ public interface GroupeService {
 
 
     List<Groupe> afficherAllGroupe();
+
+    void AjouterGroupe(Groupe groupe, int groupe_number);
 }
