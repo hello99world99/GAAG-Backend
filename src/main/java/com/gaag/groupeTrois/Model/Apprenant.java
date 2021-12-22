@@ -13,7 +13,6 @@ public class Apprenant {
     @ManyToOne
     private Promotion promotion;
 
-
     private String nom_complet;
 
     private String email;
