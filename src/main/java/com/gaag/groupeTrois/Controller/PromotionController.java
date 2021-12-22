@@ -1,10 +1,8 @@
 package com.gaag.groupeTrois.Controller;
 
-import com.gaag.groupeTrois.Model.Apprenant;
 import com.gaag.groupeTrois.Model.Promotion;
 import com.gaag.groupeTrois.Service.PromotionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,18 +14,18 @@ public class PromotionController {
     @Autowired
     PromotionServiceImpl promotionService;
 
-    @GetMapping("/afficher")
+    @GetMapping("/list")
     List<Promotion> afficherPromotion(){
         return promotionService.afficherPromotion();
     }
 
     @PostMapping("/ajouter")
-    Promotion ajouter_promotion(@RequestBody Promotion promotion){
+    String ajouter_promotion(@RequestBody Promotion promotion){
         return promotionService.ajouterPromotion(promotion);
     }
 
     @PutMapping("/modifier/{id}")
-    Promotion modifierPromotion(@RequestBody Promotion promotion,@PathVariable Long id){
+    String modifierPromotion(@RequestBody Promotion promotion,@PathVariable Long id){
         return promotionService.modifierPromotion(promotion, id);
     }
 

@@ -15,13 +15,13 @@ public class ApprenantController {
     @Autowired
     ApprenantServiceImpl apprenantServiceImp;
 
-    @GetMapping("/afficher")
+    @GetMapping("/list")
     List<Apprenant> afficherListApprenant(){
         return apprenantServiceImp.afficherListApprenant();
     }
 
     @PostMapping("/ajouter")
-    Apprenant ajouter_apprenant(@RequestBody  Apprenant apprenant){
+    String ajouter_apprenant(@RequestBody  Apprenant apprenant){
         return apprenantServiceImp.ajouterApprenant(apprenant);
     }
 

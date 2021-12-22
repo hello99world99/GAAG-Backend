@@ -11,6 +11,6 @@ public interface PromotionService {
 
     List<Promotion> afficherPromotion();
     String supprimerPromotionById(Long id);
-    Promotion ajouterPromotion(Promotion promotion);
-    Promotion modifierPromotion(Promotion promotion, Long id);
+    String ajouterPromotion(Promotion promotion);
+    String modifierPromotion(Promotion promotion, Long id);
 }

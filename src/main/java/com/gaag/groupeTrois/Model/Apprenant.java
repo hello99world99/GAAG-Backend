@@ -22,8 +22,9 @@ public class Apprenant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "promotion_id")
     @NotBlank
-    @OneToMany
     private Promotion promotion;
 
     @NotBlank

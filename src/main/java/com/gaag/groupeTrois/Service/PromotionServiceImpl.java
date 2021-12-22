@@ -1,6 +1,5 @@
 package com.gaag.groupeTrois.Service;
 
-import com.gaag.groupeTrois.Model.Apprenant;
 import com.gaag.groupeTrois.Model.Promotion;
 import com.gaag.groupeTrois.Repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,19 +26,17 @@ public class PromotionServiceImpl implements PromotionService{
     }
 
     @Override
-    public Promotion ajouterPromotion(Promotion promotion) {
-        return promotionRepository.save(promotion);
+    public String ajouterPromotion(Promotion promotion) {
+        promotionRepository.save(promotion);
+        return "Promotion ajoutée avec succèss...";
     }
 
     @Override
-    public Promotion modifierPromotion(Promotion promotion, Long id) {
-
+    public String modifierPromotion(Promotion promotion, Long id) {
         Promotion promo_a_modifier = promotionRepository.findById(id).get();
         promo_a_modifier.setAnnee(promotion.getAnnee());
         promo_a_modifier.setFormation(promotion.getFormation());
-
-
-        return promotionRepository.save(promo_a_modifier);
-
+        promotionRepository.save(promo_a_modifier);
+        return "Promotion modifiée avec succèss...";
     }
 }

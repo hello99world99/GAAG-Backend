@@ -1,21 +1,12 @@
 package com.gaag.groupeTrois.Service;
 
-
-
-
 import com.gaag.groupeTrois.Model.Apprenant;
 
 import java.util.List;
 
-
-import com.gaag.groupeTrois.Model.Apprenant;
-
-import java.util.List;
-
-public interface ApprenantService {
-    Apprenant ajouterApprenant(Apprenant apprenant);
+interface AprpenantService {
+    String ajouterApprenant(Apprenant apprenant);
     List<Apprenant> afficherListApprenant();
-    String supprimerApprenantById(Apprenant apprenant, Long id);
+    String supprimerApprenantById(Long id);
     Apprenant modifierApprenant(Apprenant apprenant, Long id);
-
 }

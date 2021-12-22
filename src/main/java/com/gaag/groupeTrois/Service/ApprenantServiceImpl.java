@@ -15,8 +15,9 @@ public class ApprenantServiceImpl implements AprpenantService{
     ApprenantRepository apprenantRepository;
 
     @Override
-    public Apprenant ajouterApprenant(Apprenant apprenant) {
-        return apprenantRepository.save(apprenant);
+    public String ajouterApprenant(Apprenant apprenant) {
+        apprenantRepository.save(apprenant);
+        return "Apprenant ajouter avec succès...";
     }
 
     @Override

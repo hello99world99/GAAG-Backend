@@ -32,6 +32,6 @@ public class Groupe {
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.ACTIVER;
 
-    @OneToMany
-    private List<Apprenant> apprenant;
+    @ManyToOne
+    private Apprenant apprenant;
 }
