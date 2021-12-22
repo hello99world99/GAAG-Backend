@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -19,11 +21,16 @@ public class Groupe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @NotBlank
     private int nbrGroupe;
+
+    @NotNull
+    @NotBlank
     private int numeroGroupe;
 
     @Enumerated(EnumType.STRING)
-    private Etat etat;
+    private Etat etat = Etat.ACTIVER;
 
     @OneToMany
     private List<Apprenant> apprenant;

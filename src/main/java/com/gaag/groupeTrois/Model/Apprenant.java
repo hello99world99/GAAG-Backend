@@ -23,7 +23,7 @@ public class Apprenant {
     private Long id;
 
     @NotBlank
-    @ManyToOne
+    @OneToMany
     private Promotion promotion;
 
     @NotBlank
@@ -35,4 +35,7 @@ public class Apprenant {
 
     @NumberFormat
     private String telephone;
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.ACTIVER;
 }
