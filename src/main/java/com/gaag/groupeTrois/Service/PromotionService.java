@@ -14,5 +14,5 @@ public interface PromotionService {
     String supprimerPromotionById(Long id);
     String ajouterPromotion(Promotion promotion);
     String modifierPromotion(Promotion promotion, Long id);
-    public LocalDate getAnnee(LocalDate annee);
+    public Promotion getPromotionByAnnee(LocalDate anneee);
 }

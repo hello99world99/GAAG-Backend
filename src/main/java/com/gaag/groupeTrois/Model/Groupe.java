@@ -21,9 +21,7 @@ public class Groupe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @NotBlank
-    private int nbrGroupe;
+    private String tache;
 
     @NotNull
     @NotBlank

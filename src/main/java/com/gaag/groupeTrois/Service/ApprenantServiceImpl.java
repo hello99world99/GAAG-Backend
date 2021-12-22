@@ -47,7 +47,7 @@ public class ApprenantServiceImpl implements AprpenantService{
     }
 
     @Override
-    public List<Apprenant> listApprenantByPromotion(LocalDate annee) {
-        return this.apprenantRepository.getApprenantByPromotionAndEtat(annee, Etat.ACTIVER);
+    public List<Apprenant> listApprenantByPromotion(Promotion promotion) {
+        return this.apprenantRepository.getApprenantByPromotionAndEtat(promotion, Etat.ACTIVER);
     }
 }

@@ -8,5 +8,5 @@ import java.time.LocalDate;
 
 @Repository
 public interface PromotionRepository extends JpaRepository<Promotion, Long> {
-    public LocalDate getPromotionByAnnee(LocalDate annee);
+    public Promotion getPromotionByAnnee(LocalDate annee);
 }

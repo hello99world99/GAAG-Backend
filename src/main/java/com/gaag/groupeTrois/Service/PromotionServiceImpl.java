@@ -42,7 +42,7 @@ public class PromotionServiceImpl implements PromotionService{
     }
 
     @Override
-    public LocalDate getAnnee(LocalDate annee) {
-        return this.promotionRepository.getPromotionByAnnee(annee);
+    public Promotion getPromotionByAnnee(LocalDate anneee) {
+        return this.promotionRepository.getPromotionByAnnee(anneee);
     }
 }

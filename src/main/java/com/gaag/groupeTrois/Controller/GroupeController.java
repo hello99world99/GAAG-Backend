@@ -1,13 +1,14 @@
 package com.gaag.groupeTrois.Controller;
 
 
-import com.gaag.groupeTrois.Model.Apprenant;
 import com.gaag.groupeTrois.Model.Groupe;
 import com.gaag.groupeTrois.Service.GroupeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,8 +26,13 @@ public class GroupeController {
         return groupeService.afficherAllGroupe();
     }
 
-    @GetMapping("/round/promotion={annee}")
-    public List<Apprenant> launchRound(@PathVariable("annee") LocalDate annee){
-        return this.groupeService.allApprenant(annee);
+    @GetMapping("/repartir/promotion={annee}&g={g}&a={a}")
+    public ArrayList<ArrayList<Groupe>> launchRound(
+            @PathVariable("annee")
+            @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate annee,
+            @PathVariable("g") int g,
+            @PathVariable("a") int a
+            ){
+        return this.groupeService.allApprenant(annee, g, a);
     }
 }
