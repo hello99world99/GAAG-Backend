@@ -31,9 +31,8 @@ public class GroupeServiceImpl implements GroupeService{
         this.listApprenant = apprenantService.listApprenantByPromotion(promotion);
         this.groupeList = new ArrayList<ArrayList<Groupe>>(g);
 
-        System.out.println(this.groupeList);
-
         int counter = 0;
+
         for (int x=0; x<g; x++){
             this.groupeList.add(new ArrayList<Groupe>(a));
             for (int i=0; i<this.listApprenant.size(); i++){
@@ -46,6 +45,20 @@ public class GroupeServiceImpl implements GroupeService{
                     this.groupeList.get(x).add(group);
                     counter++;
                 }
+            }
+        }
+
+        if (g*a<this.listApprenant.size()){
+            int rest = this.listApprenant.size()-(g*a);
+            for (int x=0; x<rest; x++){
+                int j=g*a;
+                j+=x;
+                Groupe group = new Groupe();
+                group.setApprenant(this.listApprenant.get(j));
+                group.setTache("");
+                group.setNumeroGroupe(x);
+                group.setRound(2);
+                this.groupeList.get(x).add(group);
             }
         }
 
