@@ -29,7 +29,7 @@ public class GroupeController {
     @GetMapping("/repartir/promotion={annee}&g={g}&a={a}")
     public ArrayList<ArrayList<Groupe>> launchRound(
             @PathVariable("annee")
-            @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate annee,
+            @DateTimeFormat(pattern="dd-MM-yyyy") LocalDate annee,
             @PathVariable("g") int g,
             @PathVariable("a") int a
             ){
