@@ -3,8 +3,10 @@ package com.gaag.groupeTrois.Controller;
 import com.gaag.groupeTrois.Model.Apprenant;
 import com.gaag.groupeTrois.Service.ApprenantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -15,9 +17,11 @@ public class ApprenantController {
     @Autowired
     ApprenantServiceImpl apprenantServiceImp;
 
-    @GetMapping("/list")
-    List<Apprenant> afficherListApprenant(){
-        return apprenantServiceImp.afficherListApprenant();
+    @GetMapping("/list/promo={promo}")
+    List<Apprenant> afficherListApprenant(
+            @PathVariable("promo") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate date
+            ){
+        return apprenantServiceImp.afficherListApprenant(date);
     }
 
     @PostMapping("/ajouter")

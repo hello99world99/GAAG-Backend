@@ -15,6 +15,8 @@ import java.util.List;
 public class ApprenantServiceImpl implements AprpenantService{
     @Autowired
     ApprenantRepository apprenantRepository;
+    @Autowired
+    PromotionServiceImpl promotionServiceImpl;
 
     @Override
     public String ajouterApprenant(Apprenant apprenant) {
@@ -23,8 +25,9 @@ public class ApprenantServiceImpl implements AprpenantService{
     }
 
     @Override
-    public List<Apprenant> afficherListApprenant() {
-        return apprenantRepository.getApprenantByEtat(Etat.ACTIVER);
+    public List<Apprenant> afficherListApprenant(LocalDate annee) {
+        Promotion promotion = this.promotionServiceImpl.getPromotionByAnnee(annee);
+        return apprenantRepository.getApprenantByPromotionAndEtat(promotion, Etat.ACTIVER);
     }
 
     @Transactional
