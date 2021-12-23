@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
+@Transactional
 @Service
 public class ApprenantServiceImpl implements AprpenantService{
     @Autowired
@@ -30,7 +31,6 @@ public class ApprenantServiceImpl implements AprpenantService{
         return apprenantRepository.getApprenantByPromotionAndEtat(promotion, Etat.ACTIVER);
     }
 
-    @Transactional
     @Override
     public String supprimerApprenantById(Long id) {
          Apprenant apprenant = apprenantRepository.findById(id).get();
@@ -38,7 +38,6 @@ public class ApprenantServiceImpl implements AprpenantService{
          return "Supprimer avec sucess...";
     }
 
-    @Transactional
     @Override
     public Apprenant modifierApprenant(Apprenant apprenant, Long id) {
         Apprenant apprenant_a_modifier = apprenantRepository.findById(id).get();

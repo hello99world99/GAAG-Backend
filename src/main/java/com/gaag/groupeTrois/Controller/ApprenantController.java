@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/apprenant")
 public class ApprenantController {
 
@@ -34,7 +34,7 @@ public class ApprenantController {
         return apprenantServiceImp.modifierApprenant(apprenant, id);
     }
 
-    @DeleteMapping("/supprimer/{id}")
+    @PutMapping("/supprimer/{id}")
     String supprimerApprenant(@PathVariable Long id){
         return apprenantServiceImp.supprimerApprenantById(id);
     }
