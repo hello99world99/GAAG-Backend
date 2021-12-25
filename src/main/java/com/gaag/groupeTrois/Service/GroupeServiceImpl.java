@@ -27,16 +27,20 @@ public class GroupeServiceImpl implements GroupeService{
     private List<Apprenant> listApprenant;
     private ArrayList<ArrayList<Groupe>> groupeList;
 
-    public ArrayList<ArrayList<Groupe>> allApprenant(LocalDate anneee, int g, int a, String trier) {
-        Promotion promotion = this.promotionServiceImpl.getPromotionByAnnee(anneee);
+    public ArrayList<ArrayList<Groupe>> allApprenant(LocalDate annee, int g, int a, String trier, String repart) {
+        Promotion promotion = this.promotionServiceImpl.getPromotionByAnnee(annee);
         this.listApprenant = apprenantService.listApprenantByPromotion(promotion);
         if(trier.equals("aleatoire")){
             Collections.shuffle(this.listApprenant);
         }
 
+        if (repart.equals("exces")){
+            g+=1;
+        }
+
         this.groupeList = new ArrayList<ArrayList<Groupe>>(g);
         int counter = 0;
-
+        System.out.println(g);
         for (int x=0; x<g; x++){
             this.groupeList.add(new ArrayList<Groupe>(a));
             for (int i=0; i<this.listApprenant.size(); i++){
@@ -66,10 +70,6 @@ public class GroupeServiceImpl implements GroupeService{
             }
         }
 
-        for (int x=0; x<this.groupeList.size(); x++){
-            System.out.println(this.groupeList.get(x));
-            System.out.println("=======");
-        }
         return this.groupeList;
     }
 

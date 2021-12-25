@@ -26,14 +26,15 @@ public class GroupeController {
         return groupeService.afficherAllGroupe();
     }
 
-    @GetMapping("/repartir/promotion={annee}&g={g}&a={a}&t={t}")
+    @GetMapping("/repartir/promotion={annee}&g={g}&a={a}&t={t}&r={r}")
     public ArrayList<ArrayList<Groupe>> launchRound(
             @PathVariable("annee")
             @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate annee,
             @PathVariable("g") int g,
             @PathVariable("a") int a,
-            @PathVariable("t") String trier
+            @PathVariable("t") String trier,
+            @PathVariable("r") String repart
             ){
-        return this.groupeService.allApprenant(annee, g, a, trier);
+        return this.groupeService.allApprenant(annee, g, a, trier, repart);
     }
 }
