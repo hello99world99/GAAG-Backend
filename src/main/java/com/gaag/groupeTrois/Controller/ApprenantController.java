@@ -25,7 +25,8 @@ public class ApprenantController {
     }
 
     @PostMapping("/ajouter")
-    String ajouter_apprenant(@RequestBody  Apprenant apprenant){
+    String ajouter_apprenant(@RequestBody Apprenant apprenant){
+        System.out.println(apprenant);
         return apprenantServiceImp.ajouterApprenant(apprenant);
     }
 

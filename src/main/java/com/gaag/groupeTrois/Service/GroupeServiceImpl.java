@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,11 +27,14 @@ public class GroupeServiceImpl implements GroupeService{
     private List<Apprenant> listApprenant;
     private ArrayList<ArrayList<Groupe>> groupeList;
 
-    public ArrayList<ArrayList<Groupe>> allApprenant(LocalDate anneee, int g, int a) {
+    public ArrayList<ArrayList<Groupe>> allApprenant(LocalDate anneee, int g, int a, String trier) {
         Promotion promotion = this.promotionServiceImpl.getPromotionByAnnee(anneee);
         this.listApprenant = apprenantService.listApprenantByPromotion(promotion);
-        this.groupeList = new ArrayList<ArrayList<Groupe>>(g);
+        if(trier.equals("aleatoire")){
+            Collections.shuffle(this.listApprenant);
+        }
 
+        this.groupeList = new ArrayList<ArrayList<Groupe>>(g);
         int counter = 0;
 
         for (int x=0; x<g; x++){

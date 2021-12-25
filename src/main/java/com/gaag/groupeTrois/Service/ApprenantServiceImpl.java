@@ -21,6 +21,9 @@ public class ApprenantServiceImpl implements AprpenantService{
 
     @Override
     public String ajouterApprenant(Apprenant apprenant) {
+        LocalDate annee = apprenant.getPromotion().getAnnee();
+        Promotion promotion = this.promotionServiceImpl.getPromotionByAnnee(annee);
+        apprenant.setPromotion(promotion);
         apprenantRepository.save(apprenant);
         return "Apprenant ajouter avec succès...";
     }

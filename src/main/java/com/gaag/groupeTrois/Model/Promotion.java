@@ -21,11 +21,14 @@ public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
-    @DateTimeFormat
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate annee;
+
     @NotNull
     private String formation;
+
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.ACTIVER;
 }
