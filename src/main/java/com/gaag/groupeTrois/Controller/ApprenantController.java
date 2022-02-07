@@ -31,7 +31,7 @@ public class ApprenantController {
     }
 
     @PutMapping("/modifier/{id}")
-    Apprenant modifierApprenant(@RequestBody Apprenant apprenant,@PathVariable Long id){
+    Apprenant modifierApprenant(@RequestBody Apprenant apprenant, @PathVariable Long id){
         return apprenantServiceImp.modifierApprenant(apprenant, id);
     }
 
@@ -39,6 +39,4 @@ public class ApprenantController {
     String supprimerApprenant(@PathVariable Long id){
         return apprenantServiceImp.supprimerApprenantById(id);
     }
-
-
 }
