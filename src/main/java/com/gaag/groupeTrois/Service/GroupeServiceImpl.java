@@ -27,24 +27,24 @@ public class GroupeServiceImpl implements GroupeService{
     private List<Apprenant> listApprenant;
     private ArrayList<ArrayList<Groupe>> groupeList;
 
-    public ArrayList<ArrayList<Groupe>> allApprenant(LocalDate annee, int g, int a, String trier, String repart) {
+    public ArrayList<ArrayList<Groupe>> allApprenant(LocalDate annee, int nbrGroups, int nbrPerson, String trie, String method) {
         Promotion promotion = this.promotionServiceImpl.getPromotionByAnnee(annee);
         this.listApprenant = apprenantService.listApprenantByPromotion(promotion);
-        if(trier.equals("aleatoire")){
+        if(trie.equals("aleatoire")){
             Collections.shuffle(this.listApprenant);
         }
 
-        if (repart.equals("exces")){
-            g+=1;
+        if (method.equals("exces")){
+            nbrGroups+=1;
         }
 
-        this.groupeList = new ArrayList<ArrayList<Groupe>>(g);
+        this.groupeList = new ArrayList<ArrayList<Groupe>>(nbrGroups);
         int counter = 0;
-        System.out.println(g);
-        for (int x=0; x<g; x++){
-            this.groupeList.add(new ArrayList<Groupe>(a));
+        System.out.println(nbrGroups);
+        for (int x=0; x<nbrGroups; x++){
+            this.groupeList.add(new ArrayList<Groupe>(nbrPerson));
             for (int i=0; i<this.listApprenant.size(); i++){
-                while (this.groupeList.get(x).size()<a){
+                while (this.groupeList.get(x).size()<nbrPerson){
                     Groupe group = new Groupe();
                     group.setApprenant(this.listApprenant.get(counter));
                     group.setTache("");
@@ -56,10 +56,10 @@ public class GroupeServiceImpl implements GroupeService{
             }
         }
 
-        if (g*a<this.listApprenant.size()){
-            int rest = this.listApprenant.size()-(g*a);
+        if (nbrGroups*nbrPerson<this.listApprenant.size()){
+            int rest = this.listApprenant.size()-(nbrGroups*nbrPerson);
             for (int x=0; x<rest; x++){
-                int j=g*a;
+                int j=nbrGroups*nbrPerson;
                 j+=x;
                 Groupe group = new Groupe();
                 group.setApprenant(this.listApprenant.get(j));
